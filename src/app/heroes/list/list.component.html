@@ -1,9 +1,13 @@
 <h3>List of heroes</h3>
 
-<div>
-    <h3>Heroe Deleted:</h3>
-    <span> {{ heroeDeleted }} </span>
+<div *ngIf="heroeDeleted !==''; else noDeleted">
+    <h3>Heroe Deleted:
+    <small> {{ heroeDeleted }} </small></h3>
 </div>
+
+<ng-template #noDeleted>
+    <h3>Heroe not deleted</h3>
+</ng-template>
 
 <button (click)=deleteHeroe()>
     Borrar
